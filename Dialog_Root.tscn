@@ -1,0 +1,141 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Dialog_Root.gd" type="Script" id=1]
+[ext_resource path="res://ressources/dialog_background.png" type="Texture" id=2]
+[ext_resource path="res://ressources/dialog_panel_alpha.png" type="Texture" id=3]
+[ext_resource path="res://ressources/dialog_panel_beta.png" type="Texture" id=4]
+[ext_resource path="res://ressources/choice_panel_alpha.png" type="Texture" id=5]
+
+
+
+
+[node name="Dialog_Root" type="Node"]
+
+script = ExtResource( 1 )
+beta_name = "Olaf"
+
+[node name="dialog_background" type="Sprite" parent="." index="0"]
+
+position = Vector2( 512.75, 329.024 )
+scale = Vector2( 1.24404, 1.24404 )
+texture = ExtResource( 2 )
+
+[node name="dialog_panel_alpha" type="Sprite" parent="." index="1"]
+
+position = Vector2( 185, 144 )
+scale = Vector2( 0.616667, 0.616667 )
+texture = ExtResource( 3 )
+
+[node name="alpha_text" type="RichTextLabel" parent="dialog_panel_alpha" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -251.0
+margin_top = -55.0
+margin_right = 235.0
+margin_bottom = 75.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode" ]
+
+[node name="alpha_name_label" type="Label" parent="dialog_panel_alpha" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -286.0
+margin_top = -94.0
+margin_right = -203.0
+margin_bottom = -71.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_constants", "custom_fonts" ]
+
+[node name="dialog_panel_beta" type="Sprite" parent="." index="2"]
+
+position = Vector2( 841.5, 222.5 )
+scale = Vector2( 0.608333, 0.608333 )
+texture = ExtResource( 4 )
+
+[node name="beta_text" type="RichTextLabel" parent="dialog_panel_beta" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -246.0
+margin_top = -55.0
+margin_right = 240.0
+margin_bottom = 75.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = ""
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="beta_name_label" type="Label" parent="dialog_panel_beta" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 199.0
+margin_top = -96.0
+margin_right = 290.0
+margin_bottom = -70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="choice_panel_alpha" type="Sprite" parent="." index="3"]
+
+position = Vector2( 185, 255.5 )
+scale = Vector2( 0.616667, 0.505 )
+texture = ExtResource( 5 )
+
+

@@ -1,0 +1,126 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Root.gd" type="Script" id=1]
+[ext_resource path="res://ressources/menu-music.wav" type="AudioStream" id=2]
+[ext_resource path="res://ressources/background.png" type="Texture" id=3]
+[ext_resource path="res://background.gd" type="Script" id=4]
+[ext_resource path="res://ressources/settings.png" type="Texture" id=5]
+[ext_resource path="res://ressources/new_game.png" type="Texture" id=6]
+[ext_resource path="res://ressources/credits.png" type="Texture" id=7]
+[ext_resource path="res://ressources/exit.png" type="Texture" id=8]
+[ext_resource path="res://ressources/selector.png" type="Texture" id=9]
+[ext_resource path="res://ressources/round_two.png" type="Texture" id=10]
+[ext_resource path="res://ressources/round_rune.png" type="Texture" id=11]
+[ext_resource path="res://ressources/title-label.png" type="Texture" id=12]
+
+[node name="Root" type="Node"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+version_label = "0.0.1"
+rotation = 0.1
+
+[node name="MenuStreamPlayer" type="AudioStreamPlayer" parent="." index="0"]
+
+stream = ExtResource( 2 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="background" type="Sprite" parent="." index="1"]
+
+position = Vector2( 512.485, 302.334 )
+scale = Vector2( 0.534222, 0.560592 )
+texture = ExtResource( 3 )
+script = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="settings" type="Sprite" parent="." index="2"]
+
+position = Vector2( 145.329, 319.42 )
+scale = Vector2( 1.02715, 1.07785 )
+texture = ExtResource( 5 )
+
+[node name="new_game" type="Sprite" parent="." index="3"]
+
+position = Vector2( 173.11, 227.636 )
+texture = ExtResource( 6 )
+
+[node name="credits" type="Sprite" parent="." index="4"]
+
+position = Vector2( 136, 414.109 )
+texture = ExtResource( 7 )
+
+[node name="exit" type="Sprite" parent="." index="5"]
+
+position = Vector2( 114, 507.109 )
+texture = ExtResource( 8 )
+
+[node name="selector" type="Sprite" parent="." index="6"]
+
+position = Vector2( 53.2425, 229.908 )
+scale = Vector2( 0.438225, 0.438225 )
+texture = ExtResource( 9 )
+
+[node name="round_two" type="Sprite" parent="." index="7"]
+
+position = Vector2( 694.286, 345.15 )
+scale = Vector2( 0.712919, 0.712919 )
+texture = ExtResource( 10 )
+
+[node name="round_rune" type="Sprite" parent="." index="8"]
+
+position = Vector2( 696.692, 345.819 )
+scale = Vector2( 0.281005, 0.281005 )
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="Version" type="Label" parent="." index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 970.0
+margin_top = 576.0
+margin_right = 1010.0
+margin_bottom = 590.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="StdLabel" type="Label" parent="." index="10"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = 577.0
+margin_right = 46.0
+margin_bottom = 593.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="title-label" type="Sprite" parent="." index="11"]
+
+position = Vector2( 298.25, 78.115 )
+scale = Vector2( 0.448858, 0.448858 )
+texture = ExtResource( 12 )
+
+

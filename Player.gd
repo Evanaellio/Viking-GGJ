@@ -1,55 +1,36 @@
-extends Area2D
+extends KinematicBody2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+export var speed = 200
 
-export (int) var speed
-var screensize
-var can_move_right
-signal hit
+var movedir = Vector2(0,0)
+signal attack
 
-func _ready():
-	screensize = get_viewport_rect().size
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	can_move_right = true
+func _physics_process(delta):
+	controls_loop()
+	movement_loop()
+
+func controls_loop():
+	var LEFT 	= Input.is_action_pressed('ui_left')
+	var RIGHT 	= Input.is_action_pressed('ui_right')
+	var SPACE = Input.is_key_pressed(KEY_SPACE)
+
+	movedir.x = -int(LEFT) + int(RIGHT)
 	
-	pass
+	if SPACE:
+		attack()
+	
+func movement_loop():
+	var motion = movedir.normalized() * speed
+	move_and_slide(motion, Vector2(0,0))
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
-func _process(delta):
-	var velocity = Vector2()
-	velocity.y += 0.5
-	if Input.is_key_pressed(KEY_D) and can_move_right:
-		velocity.x += 1
-		$AnimatedSprite.flip_h = false
-	if Input.is_key_pressed(KEY_Q):
-		velocity.x -= 1
-		$AnimatedSprite.flip_h = true
-	if Input.is_key_pressed(KEY_SPACE):
-		$AnimatedSprite.animation = "prepare_attack"
-	elif $AnimatedSprite.animation == "prepare_attack":
-		$AnimatedSprite.animation = "attack"
-	elif $AnimatedSprite.animation == "attack":
-		$AnimatedSprite.animation = "normal"
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-	if velocity.x != 0:
-		$AnimatedSprite.play()
+func attack():
+	var target_col = self.get_slide_collision(0)
+#	print(target)
+	if target_col == null:
+		print('No')
 	else:
-		$AnimatedSprite.stop()
-	position += velocity * delta
-	position.x = clamp(position.x, 0, screensize.x)
-	position.y = clamp(position.y, 10, screensize.y/2)
-	
-
-func _on_Player_area_entered(area):
-	can_move_right = false
-
-func _on_Player_area_exited(area):
-	can_move_right = true
+		var target_node = target_col.get_node("../")
+		print(target_node)
+		if (!self.is_connected('attack', target_node, 'take_damage()')):
+			self.connect('attack', target_node,'take_damage()')
+			emit_signal('attack')
