@@ -6,22 +6,26 @@ extends KinematicBody2D
 
 export (int) var speed
 export (int) var life
+export (int) var range_atk
+export (int) var puissance
 export (bool) var isBoss
+
+signal attack_the_player
 
 func _ready():
 	set_process(true)
 	if isBoss:
 		speed = 0
-		life = 100
+		life = 1000
 	
 func _process(delta):
-	
 	var move = Vector2()
 	
 	move += Vector2(-1,0)
 	
 	move = move.normalized() * speed
 	move_and_slide(move)
+	attack()
 
 func _on_Player_attack():
 	if isBoss:
@@ -30,14 +34,24 @@ func _on_Player_attack():
 	
 func take_damage():
 	print(life)
-	life -= 5
+	life -= 1
 	if life <= 0:
 		if isBoss:
-			get_tree().change_scene("res://Outro.tscn")
-		queue_free()
+			life = 1000
+		else:
+			queue_free()
 	
 func fallback():
 	var move = Vector2()
 	move += Vector2(1,0)
 	move = move.normalized() * speed
 	move_and_slide(move)
+
+func attack():
+	if self.get_slide_count() == 1:
+		var target_col = self.get_slide_collision(0)
+		var target_node = target_col.collider
+		if target_node.position.x - self.position.x < range_atk:
+			print(target_node)
+			emit_signal('attack_the_player', puissance)
+		

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ressources/credits_screen.png" type="Texture" id=1]
+[ext_resource path="res://Credits.gd" type="Script" id=2]
+
+[node name="Sprite" type="Sprite"]
+
+position = Vector2( 511.013, 299.77 )
+scale = Vector2( 0.971508, 1.01617 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+

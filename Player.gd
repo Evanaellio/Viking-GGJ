@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 export var speed = 200
+export var life = 200
 
 var movedir = Vector2(0,0)
 signal attack
@@ -24,8 +25,8 @@ func movement_loop():
 	move_and_slide(motion, Vector2(0,0))
 
 func attack():
-	var target_col = self.get_slide_collision(0)
-	if target_col != null:
+	if self.get_slide_count() == 1:
+		var target_col = self.get_slide_collision(0)
 		var target_node = target_col.collider
 		print(target_node)
 		if (!self.is_connected('attack', target_node, '_on_Player_attack')):
@@ -33,3 +34,11 @@ func attack():
 		emit_signal('attack')
 
 
+func _on_minion_attack(puissance):
+	life -= puissance
+	print(life)
+	if life < 0:
+		self.die()
+		
+func die():
+	get_tree().change_scene("res://Outro.tscn")

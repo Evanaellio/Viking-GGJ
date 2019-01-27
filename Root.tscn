@@ -13,7 +13,7 @@
 [ext_resource path="res://ressources/round_rune.png" type="Texture" id=11]
 [ext_resource path="res://ressources/title-label.png" type="Texture" id=12]
 
-[node name="Root" type="Node"]
+[node name="Root" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -25,7 +25,7 @@ rotation = 0.1
 stream = ExtResource( 2 )
 volume_db = 0.0
 pitch_scale = 1.0
-autoplay = false
+autoplay = true
 mix_target = 0
 bus = "Master"
 

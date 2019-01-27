@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Battle_Root.gd" type="Script" id=1]
 [ext_resource path="res://minion.tscn" type="PackedScene" id=2]
@@ -12,20 +12,21 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Counter.tscn" type="PackedScene" id=11]
 [ext_resource path="res://ressources/para0_leaves1.png" type="Texture" id=12]
+[ext_resource path="res://music/battle.wav" type="AudioStream" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32.4551, 461.409 )
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=2]
 
 bake_interval = 5.0
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 1117.79, 394.68, 0, 0, 0, 0, 1116.16, 546.178, 0, 0, 0, 0, 879.951, 551.065, 0, 0, 0, 0, 1117.79, 394.68 )
 }
 
-[node name="Battle_Root" type="Node" index="0"]
+[node name="Battle_Root" type="Node2D"]
 
 script = ExtResource( 1 )
 Minion = ExtResource( 2 )
@@ -137,6 +138,7 @@ _sections_unfolded = [ "Transform" ]
 ] instance=ExtResource( 10 )]
 
 position = Vector2( 15.9114, 495.794 )
+life = 200
 
 [node name="Camera2D" type="Camera2D" parent="Player" index="2"]
 
@@ -179,6 +181,8 @@ margin_bottom = -47.0
 position = Vector2( 1076.93, 483.948 )
 scale = Vector2( 1.26733, 1.8741 )
 speed = 0
+range_atk = 3
+puissance = 5
 isBoss = true
 
 [node name="pique5" type="Sprite" parent="." index="6"]
@@ -235,7 +239,7 @@ autostart = true
 [node name="MinionPath" type="Path2D" parent="." index="12"]
 
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
-curve = SubResource( 3 )
+curve = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -252,8 +256,19 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[connection signal="attack" from="Player" to="boss" method="_on_Player_attack"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="13"]
+
+stream = ExtResource( 13 )
+volume_db = -1.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[connection signal="attack_the_player" from="boss" to="Player" method="_on_minion_attack"]
 
 [connection signal="timeout" from="TimerSpawn" to="." method="_on_TimerSpawn_timeout"]
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
 
 

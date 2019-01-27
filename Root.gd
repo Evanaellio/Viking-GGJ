@@ -21,7 +21,7 @@ func _ready():
 	
 	set_process_input(true)
 	# Playing music 
-	get_node("MenuStreamPlayer").play()
+	#get_node("MenuStreamPlayer").play()
 	
 	OS.set_window_title("Story of Jorik")
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -57,6 +57,7 @@ func _input(event):
 			print("Settings")	
 		if (index == 2):
 			print("Credits")
+			get_tree().change_scene("res://Credits.tscn")
 		if(index == 3):
 			get_tree().quit()
 
