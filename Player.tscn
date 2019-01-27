@@ -13,11 +13,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 11.5
-height = 20.0
+extents = Vector2( 10, 224.827 )
 
 [node name="Player" type="KinematicBody2D"]
 

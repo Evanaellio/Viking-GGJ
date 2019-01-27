@@ -1,16 +1,16 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Battle_Root.gd" type="Script" id=1]
-[ext_resource path="res://ressources/para0_sky1.png" type="Texture" id=2]
-[ext_resource path="res://ressources/para0_skyclouds.png" type="Texture" id=3]
-[ext_resource path="res://ressources/para2_s1.png" type="Texture" id=4]
-[ext_resource path="res://ressources/para2_trees.png" type="Texture" id=5]
-[ext_resource path="res://ressources/para1_s1.png" type="Texture" id=6]
-[ext_resource path="res://ressources/para0_ground.png" type="Texture" id=7]
-[ext_resource path="res://ressources/pique.png" type="Texture" id=8]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Counter.tscn" type="PackedScene" id=10]
-[ext_resource path="res://minion.tscn" type="PackedScene" id=11]
+[ext_resource path="res://minion.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ressources/para0_sky1.png" type="Texture" id=3]
+[ext_resource path="res://ressources/para0_skyclouds.png" type="Texture" id=4]
+[ext_resource path="res://ressources/para2_s1.png" type="Texture" id=5]
+[ext_resource path="res://ressources/para2_trees.png" type="Texture" id=6]
+[ext_resource path="res://ressources/para1_s1.png" type="Texture" id=7]
+[ext_resource path="res://ressources/para0_ground.png" type="Texture" id=8]
+[ext_resource path="res://ressources/pique.png" type="Texture" id=9]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Counter.tscn" type="PackedScene" id=11]
 [ext_resource path="res://ressources/para0_leaves1.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -18,18 +18,20 @@
 custom_solver_bias = 0.0
 extents = Vector2( 32.4551, 461.409 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="Curve2D" id=3]
 
-custom_solver_bias = 0.0
-extents = Vector2( 64.8418, 1176.8 )
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1117.79, 394.68, 0, 0, 0, 0, 1116.16, 546.178, 0, 0, 0, 0, 879.951, 551.065, 0, 0, 0, 0, 1117.79, 394.68 )
+}
 
 [node name="Battle_Root" type="Node" index="0"]
 
 script = ExtResource( 1 )
+Minion = ExtResource( 2 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
-editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -47,7 +49,7 @@ _sections_unfolded = [ "Scroll" ]
 
 position = Vector2( 595.271, 242.879 )
 scale = Vector2( 1.13491, 0.758941 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Para2_s3" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
 
@@ -60,7 +62,7 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 603.978, 212.285 )
 scale = Vector2( 0.220511, 0.195344 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 6000, 1080 )
 _sections_unfolded = [ "Offset", "Region" ]
@@ -77,7 +79,7 @@ _sections_unfolded = [ "Motion" ]
 
 position = Vector2( 592.755, 69.0233 )
 scale = Vector2( 0.546014, 0.550378 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4000, 1080 )
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
@@ -92,7 +94,7 @@ motion_mirroring = Vector2( 0, 0 )
 
 position = Vector2( 900.661, 264.183 )
 scale = Vector2( 0.566246, 0.501621 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="Para2_s2" type="ParallaxLayer" parent="ParallaxBackground" index="4"]
 
@@ -106,7 +108,7 @@ _sections_unfolded = [ "Material", "Motion", "Transform", "Visibility", "Z Index
 
 position = Vector2( 590.852, 56.4774 )
 scale = Vector2( 0.546965, 0.568285 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 4000, 1080 )
 _sections_unfolded = [ "Region", "Transform" ]
@@ -115,26 +117,25 @@ _sections_unfolded = [ "Region", "Transform" ]
 
 position = Vector2( 584.431, 118.798 )
 scale = Vector2( 1.14381, 1 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="pique4" type="Sprite" parent="." index="2"]
 
 position = Vector2( -375.986, 462.308 )
 scale = Vector2( 0.0755267, 0.0755267 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="pique3" type="Sprite" parent="." index="3"]
 
 position = Vector2( -323.434, 466.32 )
 scale = Vector2( 0.113131, 0.113131 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Player" parent="." index="4" groups=[
 "player",
-] instance=ExtResource( 9 )]
+] instance=ExtResource( 10 )]
 
-editor/display_folded = true
 position = Vector2( 15.9114, 495.794 )
 
 [node name="Camera2D" type="Camera2D" parent="Player" index="2"]
@@ -164,44 +165,44 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing" ]
 
-[node name="Counter" parent="Player" index="3" instance=ExtResource( 10 )]
+[node name="Counter" parent="Player" index="3" instance=ExtResource( 11 )]
 
 margin_left = -39.0
 margin_top = -63.0
 margin_right = 41.0
 margin_bottom = -47.0
 
-[node name="minion" parent="." index="5" groups=[
+[node name="boss" parent="." index="5" groups=[
 "minion",
-] instance=ExtResource( 11 )]
+] instance=ExtResource( 2 )]
 
-position = Vector2( 1052.34, 503.952 )
-scale = Vector2( 0.498962, 0.498962 )
-_sections_unfolded = [ "Collision", "Pickable", "collision" ]
+position = Vector2( 1076.93, 483.948 )
+scale = Vector2( 1.26733, 1.8741 )
+speed = 0
+isBoss = true
 
 [node name="pique5" type="Sprite" parent="." index="6"]
 
 position = Vector2( -301.912, 469.583 )
 scale = Vector2( 0.134358, 0.134358 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="pique2" type="Sprite" parent="." index="7"]
 
 position = Vector2( -351.518, 473.998 )
 scale = Vector2( 0.153816, 0.153816 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="pique" type="Sprite" parent="." index="8"]
 
 position = Vector2( -394.393, 472.044 )
 scale = Vector2( 0.216674, 0.216674 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="9"]
 
-editor/display_folded = true
 position = Vector2( -276.393, 472.044 )
 scale = Vector2( 0.216674, 0.216674 )
 input_pickable = false
@@ -218,31 +219,41 @@ position = Vector2( -185.365, -109.993 )
 scale = Vector2( 1, 1.39459 )
 shape = SubResource( 1 )
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." index="10"]
-
-editor/display_folded = true
-position = Vector2( -276.393, 472.044 )
-scale = Vector2( 0.216674, 0.216674 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" index="0"]
-
-position = Vector2( 6489.02, -1027.8 )
-scale = Vector2( 1, 1.5399 )
-shape = SubResource( 2 )
-
-[node name="para0_leaves1" type="Sprite" parent="." index="11"]
+[node name="para0_leaves1" type="Sprite" parent="." index="10"]
 
 position = Vector2( 446.497, 125.307 )
 texture = ExtResource( 12 )
 _sections_unfolded = [ "Animation" ]
 
-[connection signal="attack" from="Player" to="minion" method="_on_Player_attack"]
+[node name="TimerSpawn" type="Timer" parent="." index="11"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="MinionPath" type="Path2D" parent="." index="12"]
+
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+curve = SubResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="MinionSpawnLocation" type="PathFollow2D" parent="MinionPath" index="0"]
+
+position = Vector2( 1117.79, 394.68 )
+rotation = 1.58158
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[connection signal="attack" from="Player" to="boss" method="_on_Player_attack"]
+
+[connection signal="timeout" from="TimerSpawn" to="." method="_on_TimerSpawn_timeout"]
 
 

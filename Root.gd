@@ -51,7 +51,7 @@ func _input(event):
 	if Input.is_key_pressed(KEY_ENTER):
 		if (index == 0):
 			print("New Game")
-			get_tree().change_scene("res://Cinema_Root.tscn")
+			get_tree().change_scene("res://Intro.tscn")
 			# goto_scene("res://Cinema_Root.tscn")
 		if (index == 1):
 			print("Settings")	

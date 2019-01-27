@@ -25,12 +25,11 @@ func movement_loop():
 
 func attack():
 	var target_col = self.get_slide_collision(0)
-#	print(target)
-	if target_col == null:
-		print('No')
-	else:
-		var target_node = target_col.get_node("../")
+	if target_col != null:
+		var target_node = target_col.collider
 		print(target_node)
-		if (!self.is_connected('attack', target_node, 'take_damage()')):
-			self.connect('attack', target_node,'take_damage()')
-			emit_signal('attack')
+		if (!self.is_connected('attack', target_node, '_on_Player_attack')):
+			self.connect('attack', target_node,'_on_Player_attack')
+		emit_signal('attack')
+
+

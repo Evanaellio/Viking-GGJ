@@ -4,11 +4,15 @@ extends KinematicBody2D
 # var a = 2
 # var b = "textvar"
 
-var speed = 4
-var life = 10
+export (int) var speed
+export (int) var life
+export (bool) var isBoss
 
 func _ready():
 	set_process(true)
+	if isBoss:
+		speed = 0
+		life = 100
 	
 func _process(delta):
 	
@@ -20,13 +24,17 @@ func _process(delta):
 	move_and_slide(move)
 
 func _on_Player_attack():
+	if isBoss:
+		speed = 100
 	take_damage()
 	
 func take_damage():
-	print('Signal receive..')
+	print(life)
 	life -= 5
 	if life <= 0:
-		fallback()
+		if isBoss:
+			get_tree().change_scene("res://Outro.tscn")
+		queue_free()
 	
 func fallback():
 	var move = Vector2()
