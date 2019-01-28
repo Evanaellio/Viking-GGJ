@@ -1,0 +1,14 @@
+[remap]
+
+importer="Webm"
+type="VideoStreamWebm"
+path="res://.import/intro_viking.webm-2256521e3e177136dd015da22241b02f.webmstr"
+
+[deps]
+
+source_file="res://html/ressources/intro_viking.webm"
+dest_files=[ "res://.import/intro_viking.webm-2256521e3e177136dd015da22241b02f.webmstr" ]
+
+[params]
+
+loop=true

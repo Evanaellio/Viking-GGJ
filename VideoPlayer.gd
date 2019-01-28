@@ -7,7 +7,7 @@ extends VideoPlayer
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	play()
+	preloadFile("intro_viking.ogv", ".")
 	pass
 
 #func _process(delta):

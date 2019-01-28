@@ -1,0 +1,14 @@
+[remap]
+
+importer="Theora"
+type="VideoStreamTheora"
+path="res://.import/intro_viking.ogv-476cd6098023a5a61fa252077e2d16af.ogvstr"
+
+[deps]
+
+source_file="res://release/ressources/intro_viking.ogv"
+dest_files=[ "res://.import/intro_viking.ogv-476cd6098023a5a61fa252077e2d16af.ogvstr" ]
+
+[params]
+
+loop=true

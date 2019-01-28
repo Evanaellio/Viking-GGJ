@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/intro_viking.ogg-56fbf1e5f159862137b41124119ae520.oggstr"
+
+[deps]
+
+source_file="res://html/ressources/intro_viking.ogg"
+dest_files=[ "res://.import/intro_viking.ogg-56fbf1e5f159862137b41124119ae520.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
